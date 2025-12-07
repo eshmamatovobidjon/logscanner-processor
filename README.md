@@ -2,7 +2,7 @@
 
 Spring Boot REST API for LogScanner - a powerful log file analysis tool.
 
-![Java](https://img.shields.io/badge/Java-21-orange.svg)
+![Java](https://img.shields.io/badge/Java-17-orange.svg)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -17,7 +17,7 @@ This is the backend service for LogScanner, providing:
 
 ## Tech Stack
 
-- **Java 21**
+- **Java 17**
 - **Spring Boot 3.4**
 - **Elasticsearch 8.x** - Log storage and search
 - **Redis** - Job queue and caching
@@ -27,7 +27,7 @@ This is the backend service for LogScanner, providing:
 
 ### Prerequisites
 
-- Java 21+
+- Java 17+
 - Maven 3.9+
 - Docker (for Elasticsearch & Redis)
 
@@ -35,8 +35,8 @@ This is the backend service for LogScanner, providing:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_ORG/logscanner-backend.git
-cd logscanner-backend
+git clone https://github.com/eshmamatovobidjon/logscanner-processor.git
+cd logscanner-processor
 
 # Start infrastructure (Elasticsearch + Redis)
 docker-compose -f docker-compose.dev.yml up -d
@@ -51,47 +51,10 @@ docker-compose -f docker-compose.dev.yml up -d
 
 ```bash
 # Build Docker image
-docker build -t logscanner-backend .
+docker build -t logscanner-processor .
 
 # Run with infrastructure
 docker-compose up -d
-```
-
-## Project Structure
-
-```
-src/main/java/com/star/logscanner/
-├── config/                 # Configuration classes
-│   ├── AsyncConfig.java
-│   ├── CorsConfig.java
-│   ├── ElasticsearchConfig.java
-│   └── RedisConfig.java
-├── controller/             # REST controllers
-│   └── LogController.java
-├── service/                # Business logic
-│   ├── LogProcessingService.java
-│   └── LogQueryService.java
-├── parser/                 # Log parsers
-│   ├── LogParser.java
-│   ├── JsonLogParser.java
-│   ├── CsvLogParser.java
-│   ├── TextLogParser.java
-│   └── LogParserFactory.java
-├── processor/              # File processing
-│   ├── FileStreamProcessor.java
-│   └── BatchProcessor.java
-├── query/                  # Search query builder
-│   └── LogQueryBuilder.java
-├── entity/                 # Domain entities
-│   ├── LogEntry.java
-│   └── JobStatus.java
-├── dto/                    # Data transfer objects
-│   └── query/
-├── repository/             # Data repositories
-│   ├── LogEntryRepository.java
-│   └── JobStatusRepository.java
-└── exception/              # Exception handling
-    └── GlobalExceptionHandler.java
 ```
 
 ## API Endpoints
@@ -296,17 +259,17 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ```bash
 # Build
-docker build -t your-dockerhub/logscanner-backend:1.0.0 .
+docker build -t obidjoneshmamatov/logscanner-processor:1.0.0 .
 
 # Push
-docker push your-dockerhub/logscanner-backend:1.0.0
+docker push obidjoneshmamatov/logscanner-processor:1.0.0
 ```
 
 ## Development
 
 ### Prerequisites
 
-1. Install Java 21
+1. Install Java 17
 2. Install Maven 3.9+
 3. Start Elasticsearch & Redis:
 
@@ -327,7 +290,7 @@ docker run -d --name redis \
 **IntelliJ IDEA:**
 1. Import as Maven project
 2. Enable annotation processing
-3. Set SDK to Java 21
+3. Set SDK to Java 17
 
 **VS Code:**
 1. Install "Extension Pack for Java"
@@ -335,8 +298,8 @@ docker run -d --name redis \
 
 ## Related Repositories
 
-- [logscanner](https://github.com/YOUR_ORG/logscanner) - Docker Compose & documentation
-- [logscanner-ui](https://github.com/YOUR_ORG/logscanner-ui) - React frontend
+- [logscanner](https://github.com/eshmamatovobidjon/logscanner) - Docker Compose & documentation
+- [logscanner-ui](https://github.com/eshmamatovobidjon/logscanner-ui) - React frontend
 
 ## Contributing
 
@@ -348,4 +311,4 @@ docker run -d --name redis \
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+Apache-2.0 License - see [LICENSE](LICENSE) for details.
