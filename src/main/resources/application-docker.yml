@@ -1,0 +1,37 @@
+# Docker Profile Configuration
+# Activated when SPRING_PROFILES_ACTIVE=docker
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+
+  elasticsearch:
+    uris: ${SPRING_ELASTICSEARCH_URIS:http://elasticsearch:9200}
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:redis}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+
+app:
+  file:
+    max-size: 524288000  # 500MB
+
+  elasticsearch:
+    number-of-replicas: 0  # Single node, no replicas
+
+logging:
+  level:
+    root: INFO
+    com.star.logscanner: INFO
+    org.springframework.data.elasticsearch: WARN
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+cors:
+  allowed-origins: "*"

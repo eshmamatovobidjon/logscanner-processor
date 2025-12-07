@@ -1,0 +1,45 @@
+# Build artifacts
+target/
+build/
+*.jar
+!src/main/resources/*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven wrapper (using container's Maven)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Docs
+*.md
+!README.md
+LICENSE
+
+# Tests (optional - remove if you want tests in image)
+# src/test/
